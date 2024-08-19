@@ -7,7 +7,12 @@ cargo-bundle-licenses \
     --output THIRDPARTY.yml
 
 # build statically linked binary with Rust
-export LIBCLANG_PATH="${PREFIX}/lib"
+if [[ ${build_platform} == ${target_platform} ]]; then
+    export LIBCLANG_PATH="${PREFIX}/lib"
+else
+    export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
+fi
+
 if [[ ${target_platform} =~ .*osx.* ]]; then
     export CFLAGS="${CFLAGS} -fno-define-target-os-macros"
 fi
