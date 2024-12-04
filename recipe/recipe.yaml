@@ -34,7 +34,6 @@ requirements:
     - python
     - if: linux
       then: wayland
-    - zlib
   run:
     - python
   ignore_run_exports:
