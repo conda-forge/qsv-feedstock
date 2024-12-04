@@ -32,6 +32,8 @@ requirements:
     - if: osx
       then: libiconv
     - python
+    - if: linux
+      then: wayland
     - zlib
   run:
     - python
