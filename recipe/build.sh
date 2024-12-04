@@ -21,4 +21,5 @@ if [[ ${build_platform} == ${target_platform} ]]; then
     export PYO3_PYTHON=${PYTHON}
 fi
 
+export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 cargo install --features all_features --bins --no-track --locked --root ${PREFIX} --path .
