@@ -32,11 +32,10 @@ requirements:
   run:
     - python
   ignore_run_exports:
-    - libclang
+    from_package:
+      - libclang
 
 tests:
-  - python:
-      pip_check: false
   - script:
       - qsv --help
 
