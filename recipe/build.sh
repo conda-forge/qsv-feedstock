@@ -2,6 +2,9 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
+export CARGO_PROFILE_RELEASE_STRIP=symbols
+export CARGO_PROFILE_RELEASE_LTO=fat
+
 cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY.yml
@@ -18,7 +21,5 @@ if [[ ${build_platform} == ${target_platform} ]]; then
     export PYO3_PYTHON=${PYTHON}
 fi
 
-cargo install --features all_features --no-track --locked --root ${PREFIX} --path .
-
-# strip debug symbols
-"$STRIP" "$PREFIX/bin/${PKG_NAME}"
+export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
+cargo install --features all_features --bins --no-track --locked --root ${PREFIX} --path .
