@@ -20,14 +20,16 @@ requirements:
     - ${{ stdlib('c') }}
     - cargo-bundle-licenses
     - cmake
+    - libclang  # only used for a build binary
     - make
     - if: build_platform != target_platform
       then:
         - cross-python_${{ target_platform }}
         - python
+        - if: linux
+          then: wayland
     - pkg-config
   host:
-    - libclang
     - if: osx
       then: libiconv
     - python
@@ -35,9 +37,6 @@ requirements:
       then: wayland
   run:
     - python
-  ignore_run_exports:
-    from_package:
-      - libclang
 
 tests:
   - script:
