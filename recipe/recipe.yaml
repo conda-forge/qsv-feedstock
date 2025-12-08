@@ -1,5 +1,5 @@
 context:
-  version: "10.0.0"
+  version: "11.0.2"
 
 package:
   name: qsv
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/jqnatividad/qsv/archive/${{ version }}.tar.gz
-  sha256: 7c263a9ec84e97fa8879698f6087f76ab97a1ad4b5a7794afd61d9c31c684949
+  sha256: 239838d64ed956be64004beb38d382af3282d2b76e19c6de15b669292be00ca2
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
