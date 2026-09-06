@@ -1,10 +1,3 @@
-azure:
-  free_disk_space: true
-  settings_win:
-    variables:
-      SET_PAGEFILE: "True"
-  settings_linux:
-    swapfile_size: 16GiB
 bot:
   automerge: true
 conda_build:
@@ -16,3 +9,10 @@ github:
   branch_name: main
   tooling_branch_name: main
 test: native_and_emulated
+workflow_settings:
+  free_disk_space: quick
+  pagefile_size:
+    - os: linux
+      value: 16
+    - os: win
+      value: 16
